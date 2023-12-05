@@ -1,0 +1,23 @@
+[package]
+name = "electra"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0"
+candle-core.workspace = true
+candle-electra = { git = "https://github.com/nicksenger/candle-electra.git" }
+candle-nn.workspace = true
+candle-token-classification = { path = "../..", features = ["electra"] }
+clap = { version = "4.2.4", features = ["derive"] }
+hf-hub = "0.3.0"
+itertools = "0.12"
+safetensors = "0.3"
+serde.workspace = true
+serde_json.workspace = true
+tokenizers.workspace = true
+tracing = "0.1.37"
+tracing-chrome = "0.7.1"
+tracing-subscriber = "0.3.7"

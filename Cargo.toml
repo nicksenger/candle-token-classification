@@ -1,0 +1,41 @@
+[package]
+name = "candle-token-classification"
+description = "Token Classification heads for BERT-like models via Candle"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[features]
+default = []
+electra = ["candle-electra"]
+
+[dependencies]
+candle-core.workspace = true
+candle-electra = { git = "https://github.com/nicksenger/candle-electra.git", optional = true }
+candle-nn.workspace = true
+candle-transformers.workspace = true
+tokenizers.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[workspace]
+members = [
+    "examples/*",
+]
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Nick Senger <dev@nsenger.com>"]
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/nicksenger/candle-token-classification"
+
+[workspace.dependencies]
+candle-core = "0.3"
+candle-nn = "0.3"
+candle-transformers = "0.3"
+serde = "1.0"
+serde_json = "1.0"
+tokenizers = "0.13"
