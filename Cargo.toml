@@ -1,6 +1,6 @@
 [package]
 name = "candle-token-classification"
-description = "Token Classification heads for BERT-like models via Candle"
+description = "Token Classification for BERT-like models via Candle"
 version.workspace = true
 edition.workspace = true
 authors.workspace = true

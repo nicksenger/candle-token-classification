@@ -1,6 +1,6 @@
 # Candle Token Classification
 
-This project provides token classification heads to use with pre-trained models of the BERT lineage (BERT, RoBERTa, DeBERTa, Electra, etc)
+This project provides support for using pre-trained token classification models of the BERT lineage (BERT, RoBERTa, DeBERTa, Electra, etc) via [Candle](https://github.com/huggingface/candle)
 
 ## Usage
 
