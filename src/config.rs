@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::BTreeMap;
 
 use serde::{Deserialize, Serialize};
 
@@ -22,7 +22,7 @@ pub struct Config {
     pub use_cache: bool,
     pub classifier_dropout: Option<f32>,
     pub model_type: Option<String>,
-    pub id2label: HashMap<u32, String>,
+    pub id2label: BTreeMap<u32, String>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]

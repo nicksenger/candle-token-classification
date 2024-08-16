@@ -13,13 +13,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let classifier = BertTokenClassificationHead::load(vb, &config)?;
 
-    use itertools::Itertools; // create an ordered list of labels for the chosen classifier
-    let labels = config
-        .id2label
-        .iter()
-        .sorted_by_key(|(i, _)| *i)
-        .map(|(_, label)| label.to_string())
-        .collect::<Vec<_>>();
+    // retrieve an ordered list of labels for the chosen classifier
+    let labels = config.id2label.values().cloned().collect();
 
     let output = classifier.classify( // classify some text (or use `classifier.forward` to get the output tensor)
         "This is the text we'd like to classify.",

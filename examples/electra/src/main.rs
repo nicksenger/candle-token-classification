@@ -101,12 +101,7 @@ impl Args {
         let config = std::fs::read_to_string(config_filename)?;
         let config: Config = serde_json::from_str(&config)?;
         let tokenizer = Tokenizer::from_file(&tokenizer_filename).map_err(E::msg)?;
-        let labels = config
-            .id2label
-            .iter()
-            .sorted_by_key(|(i, _)| *i)
-            .map(|(_, label)| label.to_string())
-            .collect::<Vec<_>>();
+        let labels = config.id2label.values().cloned().collect();
 
         let vb = if self.use_pth {
             VarBuilder::from_pth(&weights_filename, DTYPE, &device)?
